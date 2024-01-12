@@ -10,8 +10,6 @@ import { OurTeamComponent } from './our-team/our-team.component';
 import { ClassesComponent } from './classes/classes.component';
 import { BmiCalculatorComponent } from './bmi-calculator/bmi-calculator.component';
 import { GalleryComponent } from './gallery/gallery.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,8 +28,6 @@ import { DatePipe } from '@angular/common';
     ClassesComponent,
     BmiCalculatorComponent,
     GalleryComponent,
-    HeaderComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
