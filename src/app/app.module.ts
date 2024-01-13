@@ -17,6 +17,8 @@ import { ToastModule } from 'primeng/toast';
 import { PaginatorModule } from 'primeng/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
+import { NodataComponent } from './nodata/nodata.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { DatePipe } from '@angular/common';
     ClassesComponent,
     BmiCalculatorComponent,
     GalleryComponent,
+    NodataComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { DatePipe } from '@angular/common';
     ToastModule,
     TableModule,
     PaginatorModule,
+    SharedModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

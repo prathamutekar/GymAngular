@@ -18,6 +18,12 @@ import { ToastModule } from 'primeng/toast';
     CommonModule,
     SharedRoutingModule,
     ToastModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent
   ]
 })
 export class SharedModule { }
