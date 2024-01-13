@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+  backgroundImagePath = 'assets/img/hero/hero-1.jpg';
 }
