@@ -19,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatePipe } from '@angular/common';
 import { NodataComponent } from './nodata/nodata.component';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { SharedModule } from './shared/shared.module';
     BmiCalculatorComponent,
     GalleryComponent,
     NodataComponent,
+    LoginComponent,
+    RegisterComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

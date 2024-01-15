@@ -1,3 +1,12 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<!-- User -->
+<app-header *ngIf="!onAdminPage() && !onUserLoginPage() && !onUserRegisterPage()"></app-header>
+<router-outlet *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></router-outlet>
+<app-login *ngIf="onUserLoginPage()"></app-login>
+<app-register *ngIf="onUserRegisterPage()"></app-register>
+<app-footer *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></app-footer>
+
+<!-- Admin -->
+<app-admin-header *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-header>
+<app-admin-sidebar *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-sidebar>
+<router-outlet *ngIf="onAdminPage() && !onAdminLogin()"></router-outlet>
+<app-admin-login *ngIf="onAdminLogin()"></app-admin-login>

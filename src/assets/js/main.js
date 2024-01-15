@@ -1,10 +1,10 @@
 /*  ---------------------------------------------------
   Template Name: Gym
   Description:  Gym Fitness HTML Template
-  Author: Colorlib
-  Author URI: https://colorlib.com
+  Author: Pratham
+  Author URI: https://github.com/prathamutekar
   Version: 1.0
-  Created: Colorlib
+  Created: Pratham
 ---------------------------------------------------------  */
 
 'use strict';
