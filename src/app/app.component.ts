@@ -66,7 +66,7 @@ export class AppComponent {
   }
 
   onAdminLogin() {
-    if (this.router.url.includes('/admin-login')) {
+    if (this.router.url.includes('admin/admin-login')) {
       return true;
     }
     else {

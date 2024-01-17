@@ -21,7 +21,6 @@ import { NodataComponent } from './nodata/nodata.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     NodataComponent,
     LoginComponent,
     RegisterComponent,
-    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,

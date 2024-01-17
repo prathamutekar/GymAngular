@@ -9,10 +9,10 @@ import { OurTeamComponent } from './our-team/our-team.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
@@ -22,9 +22,6 @@ const routes: Routes = [
   { path: 'classes', component: ClassesComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'our-team', component: OurTeamComponent },
-
-  { path: 'admin-login', component: AdminLoginComponent },
-
 ];
 
 @NgModule({

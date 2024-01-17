@@ -9,4 +9,3 @@
 <app-admin-header *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-header>
 <app-admin-sidebar *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-sidebar>
 <router-outlet *ngIf="onAdminPage() && !onAdminLogin()"></router-outlet>
-<app-admin-login *ngIf="onAdminLogin()"></app-admin-login>
