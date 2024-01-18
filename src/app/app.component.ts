@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { GlobalService } from './global.service';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,6 @@ import { GlobalService } from './global.service';
 export class AppComponent {
   title = 'GymAngular';
   constructor(private router: Router, public global: GlobalService) { }
-
   ngOnInit() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

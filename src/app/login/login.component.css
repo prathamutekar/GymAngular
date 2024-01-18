@@ -1,0 +1,60 @@
+.login-card {
+    background-image: url('../../assets/img/login.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background color with transparency */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background for the card */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(82, 77, 239, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #858585;
+    float: left;
+    margin-bottom: 5px;
+}
+
+input {
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: none !important;
+}
+
+.input-group-text {
+    border-color: #e6edef;
+    font-weight: 500;
+    padding: 9px 10px;
+    border-radius: 4px 0 0 4px;
+}
+
+button {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: #007bff; /* Change the button color as needed */
+    color: #fff; /* Change the text color as needed */
+}

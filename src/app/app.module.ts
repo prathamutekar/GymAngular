@@ -21,6 +21,8 @@ import { NodataComponent } from './nodata/nodata.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { RegisterComponent } from './register/register.component';
     NodataComponent,
     LoginComponent,
     RegisterComponent,
+    // AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { RegisterComponent } from './register/register.component';
     ToastModule,
     TableModule,
     PaginatorModule,
-    SharedModule
+    SharedModule,
+    AdminModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

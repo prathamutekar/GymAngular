@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { AdminContactsComponent } from './admin-contacts/admin-contacts.component';
@@ -16,6 +16,8 @@ import { TableModule } from 'primeng/table';
 import { PaginatorModule } from 'primeng/paginator';
 import { SharedModule } from 'primeng/api';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AppComponent } from '../app.component';
+import { AdminTrainersComponent } from './admin-trainers/admin-trainers.component';
 
 
 
@@ -27,7 +29,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     AdminPlansComponent,
     AdminLeadsComponent,
     AdminGalleryComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AdminTrainersComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,16 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     TableModule,
     PaginatorModule,
     SharedModule
+  ],
+  exports: [
+    AdminDashboardComponent,
+    AdminUsersComponent,
+    AdminContactsComponent,
+    AdminPlansComponent,
+    AdminLeadsComponent,
+    AdminGalleryComponent,
+    AdminTrainersComponent,
+    AdminLoginComponent,
   ]
 })
 export class AdminModule { }

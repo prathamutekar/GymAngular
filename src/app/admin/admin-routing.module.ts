@@ -8,6 +8,7 @@ import { AdminContactsComponent } from './admin-contacts/admin-contacts.componen
 import { AdminPlansComponent } from './admin-plans/admin-plans.component';
 import { AdminLeadsComponent } from './admin-leads/admin-leads.component';
 import { AdminGalleryComponent } from './admin-gallery/admin-gallery.component';
+import { AdminTrainersComponent } from './admin-trainers/admin-trainers.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'admin-login' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'admin-plans', component: AdminPlansComponent },
   { path: 'admin-leads', component: AdminLeadsComponent },
   { path: 'admin-gallery', component: AdminGalleryComponent },
+  { path: 'admin-trainers', component: AdminTrainersComponent },
 ];
 
 

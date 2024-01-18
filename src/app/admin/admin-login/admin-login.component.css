@@ -1,0 +1,48 @@
+.login-card {
+    padding-top: 10%;
+    background-color: rgba(36, 105, 92, 0.1);
+    height: 100vh;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #858585;
+    float: left;
+    margin-bottom: 5px;
+}
+
+input {
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: none !important;
+}
+
+i {
+    font-size: 18px;
+}
+
+.input-group-text {
+    border-color: #e6edef;
+    font-weight: 500;
+    padding: 9px 10px;
+    /* background: #858585; */
+    border-radius: 4px 0 0 4px;
+}
+
+button {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
