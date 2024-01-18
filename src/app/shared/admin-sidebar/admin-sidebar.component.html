@@ -1,1 +1,72 @@
-<p>admin-sidebar works!</p>
+<nav class="side-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 mt-5">
+                <div class="profile text-center mb-5">
+
+                </div>
+                <ul class="w-100">
+                    <li [ngClass]="global.activeTab == 'dashboard'?'active':''" (click)="navigateTo('admin-dashboard')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-grid menu-icon me-2"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-users'?'active':''" (click)="navigateTo('admin-users')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-grid-2 menu-icon me-1"></i> <span>Users</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-trainers'?'active':''"
+                        (click)="navigateTo('admin-trainers')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-head menu-icon me-1"></i> <span>Trainers</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-contacts'?'active':''"
+                        (click)="navigateTo('admin-contacts')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="fas fa-shopping-cart me-1"></i> <span>Contacts</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-leads'?'active':''"
+                        (click)="navigateTo('admin-leads')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-columns menu-icon me-1"></i> <span>Leads</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-plans'?'active':''"
+                        (click)="navigateTo('admin-plans')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-box menu-icon me-1"></i> <span>Plans</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="global.activeTab == 'admin-gallery'?'active':''" (click)="navigateTo('admin-gallery')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-paper menu-icon me-1"></i> <span>Gallery</span>
+                        </a>
+                    </li>
+                    <!-- <li [ngClass]="global.activeTab == 'admin-testimonials'?'active':''"
+                        (click)="navigateTo('admin-testimonials')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="fas fa-users me-1"></i>Testimonials
+                        </a>
+                    </li> -->
+                    <li [ngClass]="global.activeTab == 'change-password'?'active':''"
+                        (click)="navigateTo('change-password')">
+                        <a href="javascript:void(0)" class="side-tab">
+                            <i class="icon-lock menu-icon me-1"></i> <span>Change Password</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" class="side-tab" (click)="logout()">
+                            <i class="icon-power menu-icon me-1"></i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<p-toast position="top-right" [ngStyle]="{'z-index': '2'}"></p-toast>

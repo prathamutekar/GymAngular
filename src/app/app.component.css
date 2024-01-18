@@ -1,0 +1,144 @@
+.main-page {
+    min-height: 90vh;
+    overflow: hidden;
+    margin-top: 5rem;
+    background: #f2f2f2;
+    /* margin-left: 0.8rem; */
+}
+
+section {
+    overflow: hidden;
+}
+
+.whatsapp {
+    position: relative;
+}
+
+.whatsapp img {
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.4));
+    cursor: pointer;
+    width: 60px;
+    position: fixed;
+    left: 2%;
+    bottom: 4%;
+    z-index: 99999;
+    transition: 0.6s;
+}
+
+/* Uncomment the following if you want to include the hover animation */
+/* .whatsapp img:hover {
+    animation: whatsapp 1.2s ease-in-out;
+} */
+
+.loader-container .main-logo {
+    animation: mymove 5s infinite;
+}
+
+#confetti {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 140%;
+    width: 100%;
+    z-index: 9999;
+}
+
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 75px;
+    right: -20px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: transparent;
+    text-align: center;
+    color: #d40c1c;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999999999;
+    transition: 0.6s;
+    transform: rotate(269deg);
+    animation: upArrow 1s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+    animation: upArrow 1s ease-in;
+}
+
+.hiddenGem {
+    display: none;
+    transition: 0.6s ease-in-out;
+}
+
+@keyframes mymove {
+    50% {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes upArrow {
+    0% {
+        bottom: 75px;
+    }
+
+    10% {
+        bottom: 80px;
+    }
+
+    20% {
+        bottom: 90px;
+    }
+
+    30% {
+        bottom: 100px;
+    }
+
+    40% {
+        bottom: 110px;
+    }
+
+    50% {
+        bottom: 125px;
+    }
+
+    60% {
+        bottom: 110px;
+    }
+
+    70% {
+        bottom: 100px;
+    }
+
+    80% {
+        bottom: 90px;
+    }
+
+    90% {
+        bottom: 80px;
+    }
+
+    100% {
+        bottom: 75px;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 576px) {
+    #scrollToTopBtn {
+        position: fixed;
+        bottom: 60px;
+        right: -30px !important;
+        font-size: 16px !important;
+    }
+
+    .whatsapp img {
+        width: 50px !important;
+        left: 5% !important;
+        bottom: 5% !important;
+    }
+
+    .loader-container .main-logo {
+        width: 20%;
+    }
+}

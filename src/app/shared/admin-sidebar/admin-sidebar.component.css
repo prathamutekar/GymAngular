@@ -1,0 +1,137 @@
+.side-bar {
+    position: fixed;
+    width: 16.7%;
+    height: 100%;
+    overflow-x: hidden;
+    background: #47494b;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.side-bar .profile {
+    width: 94%;
+}
+
+.side-bar .profile .prof-img {
+    width: 100px;
+    height: 100px;
+}
+
+.side-bar .profile .prof-img img {
+    border-radius: 50%;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 8px 0px;
+}
+
+.side-bar .profile .prof-img span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    background: var(--white);
+    padding: 2px 18px;
+    border-radius: 10px;
+    bottom: -15px !important;
+    box-shadow: rgba(8, 8, 8, 0.2) 0px 2px 8px 0px;
+}
+
+.side-bar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.side-bar ul li {
+    margin-bottom: 4px;
+    border-radius: 15px;
+    width: 100% !important;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 14px !important;
+    display: inline-flex;
+}
+
+.side-bar ul li:hover {
+    background: var(--secondary-color);
+    color: var(--white) !important;
+}
+
+.side-bar ul li:hover a {
+    color: var(--white) !important;
+}
+
+.side-bar ul li .side-tab {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.active {
+    background: var(--secondary-color);
+    color: var(--white) !important;
+}
+
+.active a {
+    color: var(--white) !important;
+}
+
+/* col-xs */
+@media (min-width: 100px) and (max-width: 300px) {
+    .side-bar {
+        width: 70%;
+        z-index: 99;
+    }
+}
+
+@media (min-width: 301px) and (max-width: 400px) {
+    .side-bar {
+        width: 70%;
+        z-index: 99;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 500px) {
+    .side-bar {
+        width: 50%;
+        z-index: 99;
+    }
+}
+
+@media (min-width: 501px) and (max-width: 576px) {
+    .side-bar {
+        width: 40%;
+        z-index: 99;
+    }
+}
+
+/* col-sm */
+@media (min-width: 577px) and (max-width: 768px) {
+    .side-bar {
+        width: 30%;
+        z-index: 99;
+    }
+}
+
+/* col-md */
+@media (min-width: 769px) and (max-width: 992px) {
+    .side-bar {
+        width: 25%;
+    }
+}
+
+/* col-lg */
+@media (min-width: 992px) and (max-width: 1200px) {
+    /* Add your styles for this breakpoint */
+}
+
+/* col-xl */
+@media (min-width: 1201px) and (max-width: 1400px) {
+    /* Add your styles for this breakpoint */
+}
+
+/* col-xxl */
+@media (min-width: 1401px) and (max-width: 1900px) {
+    /* Add your styles for this breakpoint */
+}
+
+/* above col-xxl */
+@media (min-width: 1901px) {
+    /* Add your styles for this breakpoint */
+}

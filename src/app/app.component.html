@@ -1,12 +1,46 @@
-<!-- User -->
-<app-header *ngIf="!onAdminPage() && !onUserLoginPage() && !onUserRegisterPage()"></app-header>
-<router-outlet *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></router-outlet>
-<app-login *ngIf="onUserLoginPage()"></app-login>
-<app-register *ngIf="onUserRegisterPage()"></app-register>
-<app-footer *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></app-footer>
+<section>
 
-<!-- Admin -->
-<app-admin-header *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-header>
-<app-admin-sidebar *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-sidebar>
-<router-outlet *ngIf="onAdminPage() && !onAdminLogin()"></router-outlet>
-<app-admin-login *ngIf="onAdminLogin()"></app-admin-login>
+    <!-- User -->
+    <app-header *ngIf="!onAdminPage() && !onUserLoginPage() && !onUserRegisterPage()"></app-header>
+    <router-outlet *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></router-outlet>
+    <app-login *ngIf="onUserLoginPage()"></app-login>
+    <app-register *ngIf="onUserRegisterPage()"></app-register>
+    <app-footer *ngIf="!onAdminPage()  && !onUserLoginPage() && !onUserRegisterPage()"></app-footer>
+
+    <!-- Admin -->
+    <!-- <app-admin-header *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-header>
+    <app-admin-sidebar *ngIf="onAdminPage() && !onAdminLogin()"></app-admin-sidebar>
+    <router-outlet *ngIf="onAdminPage() && !onAdminLogin()"></router-outlet>
+    <app-admin-login *ngIf="onAdminLogin()"></app-admin-login> -->
+
+    <!-- admin -->
+    <div class="container-fluid p-0" *ngIf="onAdminPage()">
+        <!-- <div class="row m-0">
+                <div class="" *ngIf="onAdminLogin()">
+                   
+                </div>
+                <div
+                    [ngClass]="!onAdminLogin()?'col-12 col-sm-12 col-md-12 col-lg-12':'col-12 col-sm-10 col-md-9 col-lg-10'">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 p-0" *ngIf="onAdminLogin()">
+    
+                        </div>
+                        
+                    </div>
+                </div>
+            </div> -->
+
+        <div class="row m-0">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12" *ngIf="!onAdminLogin()">
+                <app-admin-header></app-admin-header>
+            </div>
+            <div [ngClass]="global.menu?'col-12 col-sm-2 col-md-3 col-lg-2 p-0':'hiddenGem'" *ngIf="!onAdminLogin()">
+                <app-admin-sidebar></app-admin-sidebar>
+            </div>
+            <div [ngClass]="global.menu && !onAdminLogin()?'main-page col-12 col-sm-12 col-md-9 col-lg-10 ps-4':'main-page col-12 col-sm-12 col-md-12 col-lg-12 p-0'"
+                [ngClass]="!onAdminLogin()?'main-page col-12 col-sm-12 col-md-9 col-lg-10':'p-0'">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</section>

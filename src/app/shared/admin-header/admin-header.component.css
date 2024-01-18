@@ -1,0 +1,56 @@
+nav {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    position: fixed;
+    width: 100% !important;
+    top: 0%;
+    right: 0%;
+    left: 0;
+    z-index: 1030;
+    background: #47494b;
+}
+
+nav .navbar-brand {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 24px;
+}
+
+nav h5 {
+    color: var(--white) !important;
+    font-weight: 700;
+    margin: 0;
+}
+
+nav button {
+    background: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    border-radius: 15px !important;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+nav button:hover {
+    color: var(--secondary-color) !important;
+    background-color: rgba(75, 73, 172, 0.2) !important;
+    border-color: rgba(75, 73, 172, 0) !important;
+}
+
+nav .toggle-icon {
+    margin-left: 65%;
+    width: 34px;
+    height: 30px;
+    border-radius: 6px;
+    border: 2px solid #858585;
+    line-height: 24px;
+    font-size: 24px;
+    color: #858585;
+    text-align: center;
+    cursor: pointer;
+}
+
+nav .toggle-icon:active {
+    transform: scale(0.95) !important;
+    transition: all 0.6s ease !important;
+}

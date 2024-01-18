@@ -1,1 +1,14 @@
-<p>admin-header works!</p>
+<nav class="navbar navbar-expand-lg py-3 rounded-0">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-2" href="javascript:void(0)" (click)="navigateTo('admin-dashboard')">
+            <img src="../../../assets/img/logo.png" width="150" class="img-fluid" alt="">
+        </a>
+
+        <div class="me-auto">
+            <div class="toggle-icon" (click)="toggleMenu()">
+                <i class="icon-menu menu-icon"></i>
+            </div>
+        </div>
+    </div>
+</nav>
+<p-toast position="top-right" [ngStyle]="{'z-index': '2'}"></p-toast>

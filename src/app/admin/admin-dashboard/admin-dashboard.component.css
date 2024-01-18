@@ -1,0 +1,44 @@
+.dashboard .card {
+    border-radius: 15px !important;
+    border-color: #dee2e6 !important;
+    color: var(--white);
+}
+
+.dashboard .card h4 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.dashboard .card h6 {
+    color: #000 !important;
+}
+
+/* Uncomment the following styles if needed */
+/*
+.dashboard .bg-1 {
+    background: rgba(163, 164, 165, 0.2) !important;
+    color: var(--secondary-color);
+}
+
+.dashboard .bg-1 h6 {
+    color: var(--secondary-color) !important;
+}
+*/
+
+.dashboard .bg-2 {
+    /* background: rgba(163, 164, 165, 0.2); */
+    color: var(--secondary-color);
+}
+
+.dashboard .bg-2 h6 {
+    color: var(--theme-color) !important;
+}
+
+.dashboard .bg-1 {
+    /* background: var(--secondary-color); */
+    color: var(--theme-color);
+}
+
+.col-3 {
+    border-color: var(--secondary-color) !important;
+}
