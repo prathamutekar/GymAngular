@@ -6,5 +6,7 @@
 @import "./assets/css/magnific-popup.css";
 @import "./assets/css/slicknav.min.css";
 @import "./assets/css/style.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 

@@ -13,12 +13,10 @@ import { GlobalService } from 'src/app/global.service';
 export class AdminDashboardComponent {
   users: any = 0;
   contacts: any = 0;
-  category: any = 0;
-  subcategory: any = 0;
-  services: any = 0;
-  blogs: any = 0;
-  addons: any = 0;
-  coupons: any = 0;
+  trainers: any = 0;
+  plans: any = 0;
+  leads: any = 0;
+  gallery: any = 0;
 
   constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService, private global: GlobalService) { }
 
@@ -28,14 +26,12 @@ export class AdminDashboardComponent {
 
   getAdminDashboardCounts() {
     this.global.get(this.global.basepath + '/getAdminDashboardCount').subscribe((res: any) => {
-      this.users = res.user
+      this.users = res.users
       this.contacts = res.contacts
-      this.category = res.category
-      this.subcategory = res.subcategory
-      this.services = res.services
-      this.blogs = res.blogs
-      this.addons = res.addons
-      this.coupons = res.coupons
+      this.trainers = res.trainers
+      this.plans = res.plans
+      this.leads = res.leads
+      this.gallery = res.gallery
     })
   }
 
