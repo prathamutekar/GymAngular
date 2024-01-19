@@ -49,7 +49,7 @@
 }
 
 .side-bar ul li:hover {
-    background: var(--secondary-color);
+    background: #f36100;
     color: var(--white) !important;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .active {
-    background: var(--secondary-color);
+    background: #f36100;
     color: var(--white) !important;
 }
 

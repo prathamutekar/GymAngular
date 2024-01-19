@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalService {
   menu: boolean = true
-  activeTab: any = sessionStorage.getItem('adminActiveTab') ? sessionStorage.getItem('adminActiveTab') : 'dashboard';
+  activeTab: any = sessionStorage.getItem('adminActiveTab') ? sessionStorage.getItem('adminActiveTab') : 'admin-dashboard';
   
   basepath = "http://127.0.0.1:8000/api"
 

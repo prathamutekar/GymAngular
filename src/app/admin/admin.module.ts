@@ -19,6 +19,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AppComponent } from '../app.component';
 import { AdminTrainersComponent } from './admin-trainers/admin-trainers.component';
 import { AdminChangepasswordComponent } from './admin-changepassword/admin-changepassword.component';
+import { AdminRoutingModule } from './admin-routing.module';
 
 
 
@@ -44,7 +45,8 @@ import { AdminChangepasswordComponent } from './admin-changepassword/admin-chang
     ToastModule,
     TableModule,
     PaginatorModule,
-    SharedModule
+    SharedModule,
+    // AdminRoutingModule
   ],
   exports: [
     AdminDashboardComponent,

@@ -6,43 +6,43 @@
 
                 </div>
                 <ul class="w-100">
-                    <li [ngClass]="global.activeTab == 'dashboard'?'active':''" (click)="navigateTo('admin-dashboard')">
+                    <li [ngClass]="global.activeTab == 'admin-dashboard'?'active':''" (click)="navigateTo('admin-dashboard')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-grid menu-icon me-2"></i> <span>Dashboard</span>
+                            <i class="fa fa-dashboard me-2"></i> <span>Dashboard</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-users'?'active':''" (click)="navigateTo('admin-users')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-grid-2 menu-icon me-1"></i> <span>Users</span>
+                            <i class="fa fa-user me-2"></i> <span>Users</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-trainers'?'active':''"
                         (click)="navigateTo('admin-trainers')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-head menu-icon me-1"></i> <span>Trainers</span>
+                            <i class="fa fa-male me-2"></i> <span>Trainers</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-contacts'?'active':''"
                         (click)="navigateTo('admin-contacts')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="fas fa-shopping-cart me-1"></i> <span>Contacts</span>
+                            <i class="fa fa-phone me-1"></i> <span>Contacts</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-leads'?'active':''"
                         (click)="navigateTo('admin-leads')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-columns menu-icon me-1"></i> <span>Leads</span>
+                            <i class="fa fa-heart me-1"></i> <span>Leads</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-plans'?'active':''"
                         (click)="navigateTo('admin-plans')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-box menu-icon me-1"></i> <span>Plans</span>
+                            <i class="fa fa-tags me-1"></i> <span>Plans</span>
                         </a>
                     </li>
                     <li [ngClass]="global.activeTab == 'admin-gallery'?'active':''" (click)="navigateTo('admin-gallery')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-paper menu-icon me-1"></i> <span>Gallery</span>
+                            <i class="fa fa-image me-1"></i> <span>Gallery</span>
                         </a>
                     </li>
                     <!-- <li [ngClass]="global.activeTab == 'admin-testimonials'?'active':''"
@@ -51,15 +51,15 @@
                             <i class="fas fa-users me-1"></i>Testimonials
                         </a>
                     </li> -->
-                    <li [ngClass]="global.activeTab == 'change-password'?'active':''"
+                    <li [ngClass]="global.activeTab == 'admin-changepassword'?'active':''"
                         (click)="navigateTo('admin-changepassword')">
                         <a href="javascript:void(0)" class="side-tab">
-                            <i class="icon-lock menu-icon me-1"></i> <span>Change Password</span>
+                            <i class="fa fa-key me-1"></i> <span>Change Password</span>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="side-tab" (click)="logout()">
-                            <i class="icon-power menu-icon me-1"></i>
+                            <i class="fa fa-sign-out me-1"></i>
                             <span>Logout</span>
                         </a>
                     </li>

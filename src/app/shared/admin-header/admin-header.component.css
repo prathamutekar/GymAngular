@@ -10,20 +10,20 @@ nav {
 }
 
 nav .navbar-brand {
-    color: var(--white);
+    color: #fff;
     font-weight: 500;
     font-size: 24px;
 }
 
 nav h5 {
-    color: var(--white) !important;
+    color: #fff !important;
     font-weight: 700;
     margin: 0;
 }
 
 nav button {
-    background: var(--secondary-color) !important;
-    border-color: var(--secondary-color) !important;
+    background: #47494b !important;
+    border-color: #47494b !important;
     border-radius: 15px !important;
     padding: 8px 20px;
     font-size: 1rem;
@@ -32,7 +32,7 @@ nav button {
 }
 
 nav button:hover {
-    color: var(--secondary-color) !important;
+    color: #f8f3f3 !important;
     background-color: rgba(75, 73, 172, 0.2) !important;
     border-color: rgba(75, 73, 172, 0) !important;
 }
@@ -45,7 +45,7 @@ nav .toggle-icon {
     border: 2px solid #858585;
     line-height: 24px;
     font-size: 24px;
-    color: #858585;
+    color: #fff;
     text-align: center;
     cursor: pointer;
 }
