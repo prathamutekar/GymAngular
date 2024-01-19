@@ -23,33 +23,28 @@ h4 {
     background-color: var(--white);
 }
 
-table {
-    thead th {
-        font-size: 14px;
-    }
-
-    tbody th,
-    tbody td {
-        font-size: 14px;
-    }
-
-    tbody th button {
-        width: 105px !important;
-    }
-}
-
-tr th {
+table thead th {
     font-size: 14px;
 }
 
+table tbody th,
+table tbody td {
+    font-size: 14px;
+}
+
+table tbody th button {
+    width: 105px !important;
+}
+
+tr th,
 tr th,
 tr td {
     font-size: 14px;
 }
 
 .btn-primary {
-    background: var(--secondary-color) !important;
-    border-color: var(--secondary-color) !important;
+    background: var(--secondary-color)!important;
+    border-color: var(--secondary-color)!important;
     border-radius: 15px !important;
     padding: 8px 20px;
     font-size: 1rem;
@@ -58,7 +53,7 @@ tr td {
 }
 
 .btn-primary:hover {
-    color: var(--secondary-color) !important;
+    color: var(--secondary-color)!important;
     background-color: rgba(75, 73, 172, 0.2) !important;
     border-color: rgba(75, 73, 172, 0) !important;
 }
@@ -82,4 +77,14 @@ tr td {
 
 .card {
     box-shadow: none !important;
+}
+
+@media (min-width: 100px) and (max-width: 450px) {
+    .p-input-icon-left {
+        width: 50%;
+    }
+
+    .p-input-icon-left input {
+        width: 100%;
+    }
 }

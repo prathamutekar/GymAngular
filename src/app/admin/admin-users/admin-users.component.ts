@@ -11,7 +11,7 @@ import { GlobalService } from 'src/app/global.service';
 export class AdminUsersComponent {
   TotalRecords: any = 0
 
-  userlist: any;
+  userlist: any =[];
   delete_ID: any
   constructor(private global: GlobalService, private messageService: MessageService) {
 

@@ -52,7 +52,7 @@
                         </a>
                     </li> -->
                     <li [ngClass]="global.activeTab == 'change-password'?'active':''"
-                        (click)="navigateTo('change-password')">
+                        (click)="navigateTo('admin-changepassword')">
                         <a href="javascript:void(0)" class="side-tab">
                             <i class="icon-lock menu-icon me-1"></i> <span>Change Password</span>
                         </a>
@@ -69,4 +69,4 @@
         </div>
     </div>
 </nav>
-<p-toast position="top-right" [ngStyle]="{'z-index': '2'}"></p-toast>
+<p-toast position="top-right"></p-toast>

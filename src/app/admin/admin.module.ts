@@ -18,6 +18,7 @@ import { SharedModule } from 'primeng/api';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AppComponent } from '../app.component';
 import { AdminTrainersComponent } from './admin-trainers/admin-trainers.component';
+import { AdminChangepasswordComponent } from './admin-changepassword/admin-changepassword.component';
 
 
 
@@ -30,7 +31,8 @@ import { AdminTrainersComponent } from './admin-trainers/admin-trainers.componen
     AdminLeadsComponent,
     AdminGalleryComponent,
     AdminLoginComponent,
-    AdminTrainersComponent
+    AdminTrainersComponent,
+    AdminChangepasswordComponent
   ],
   imports: [
     CommonModule,
@@ -53,6 +55,7 @@ import { AdminTrainersComponent } from './admin-trainers/admin-trainers.componen
     AdminGalleryComponent,
     AdminTrainersComponent,
     AdminLoginComponent,
+    AdminChangepasswordComponent
   ]
 })
 export class AdminModule { }
