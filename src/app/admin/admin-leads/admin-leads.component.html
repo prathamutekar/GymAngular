@@ -7,50 +7,56 @@
     <!-- table -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12" *ngIf="userlist.length > 0">
+            <div class="col-12" *ngIf="Leads.length > 0">
                 <div class="card border-0">
                     <div class="card-body">
-                        <p-table #dt3 [value]="userlist" [rows]="5" [paginator]="userlist.length > 5"
-                            [globalFilterFields]="['name','email','mobile_no']" styleClass="p-datatable-gridlines"
-                            [tableStyle]="{'min-width': '50rem'}">
+                        <p-table #dt3 [value]="Leads" [rows]="5" [paginator]="Leads?.length > 5"
+                            [globalFilterFields]="['name','email','mobile_no','plans.plan_name','leadStatus']"
+                            [tableStyle]="{ 'min-width': '50rem' }">
                             <ng-template pTemplate="caption">
                                 <div class="flex">
                                     <span class="p-input-icon-left ml-auto border rounded">
-                                        <i class="fas fa-search"></i>
-                                        <input pInputText type="text"
+                                        <i class="fa fa-search"></i>
+                                        <input class="border-0" pInputText type="text"
                                             (input)="dt3.filterGlobal($any($event.target).value, 'contains')"
                                             placeholder="Search keyword" />
                                     </span>
                                 </div>
                             </ng-template>
-
                             <ng-template pTemplate="header">
                                 <tr>
-                                    <th class="text-center">S No</th>
-                                    <th class="text-start">Name</th>
-                                    <th class="text-start">Mobile Number</th>
-                                    <th class="text-start">Email</th>
-                                    <!-- <th class="text-center">Action</th> -->
+                                    <th>Sr No.</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Mobile</th>
+                                    <th>Plan</th>
+                                    <th>Status</th>
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-delivery let-i="rowIndex">
+                            <ng-template pTemplate="body" let-Leads let-index="rowIndex">
                                 <tr>
-                                    <td class="text-center">{{ i + 1 }}</td>
-                                    <td class="text-start">{{delivery.name}}</td>
-                                    <td class="text-start">{{delivery.mobile_no}}</td>
-                                    <td class="text-start">{{delivery.email}}</td>
-                                    <!-- <td class="text-center">
-                                        <i class="mx-1 fas fa-trash-alt cursor-pointer" data-bs-toggle="modal"
-                                            data-bs-target="#usersdeletemodal"></i>
-                                    </td> -->
+                                    <td>{{index + 1}}</td>
+                                    <td>{{ Leads?.name }}</td>
+                                    <td>{{ Leads?.email }}</td>
+                                    <td>{{ Leads?.mobile_no }}</td>
+                                    <td>{{ Leads?.plans?.plan_name }}</td>
+                                    <td>
+                                        <select class="form-select" [(ngModel)]="Leads.leadStatus"
+                                            (change)="updateLeadStatus(Leads)">
+                                            <option value="0">Pending</option>
+                                            <option value="1">Completed</option>
+                                            <!-- <option value="2">Converted</option> -->
+                                        </select>
+                                    </td>
                                 </tr>
                             </ng-template>
                         </p-table>
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center" *ngIf="userlist.length < 1">
-                <strong>No Data</strong>
+            <div class="col-12 text-center" *ngIf="Leads.length < 1">
+                <strong>No leads are available at the moment</strong>
+
             </div>
 
         </div>

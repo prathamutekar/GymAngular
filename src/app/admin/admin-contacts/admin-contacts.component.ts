@@ -9,23 +9,36 @@ import { GlobalService } from 'src/app/global.service';
   providers: [MessageService]
 })
 export class AdminContactsComponent {
-  TotalRecords: any = 0
-
-  userlist: any;
-  delete_ID: any
+  contacts: any = [];
+  contact_id: any;
   constructor(private global: GlobalService, private messageService: MessageService) {
 
   }
 
   ngOnInit(): void {
-    this.getUser()
+    this.getContact()
   }
 
-  getUser() {
-    this.global.get(this.global.basepath + '/getUsers').subscribe((res: any) => {
-      this.userlist = res.data;
-      this.TotalRecords = res.TotalRecords;
+  getContact() {
+    this.global.get(this.global.basepath + '/getContact').subscribe((res: any) => {
+      this.contacts = res.data;
     })
   }
+
+  deleteContact() {
+    this.global.post(this.global.basepath + '/deleteContact', { id: this.contact_id }).subscribe(
+      (res: any) => {
+        this.messageService.clear()
+        this.messageService.add({ severity: 'success', summary: res.message })
+        this.getContact();
+      },
+      (err: any) => {
+        console.log(err);
+        this.messageService.clear()
+        this.messageService.add({ severity: 'error', summary: err.error.message })
+      }
+    );
+  }
+
 
 }

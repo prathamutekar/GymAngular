@@ -1,22 +1,22 @@
-<section class="block ">
+<section class="pt-4">
 
     <div class="w-100 mb-4 ms-3">
-        <h4>Users</h4>
+        <h4>Contact</h4>
     </div>
 
     <!-- table -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12" *ngIf="userlist.length > 0">
+            <div class="col-12" *ngIf="contacts.length > 0">
                 <div class="card border-0">
                     <div class="card-body">
-                        <p-table #dt3 [value]="userlist" [rows]="5" [paginator]="userlist.length > 5"
-                            [globalFilterFields]="['name','email','mobile_no']" styleClass="p-datatable-gridlines"
-                            [tableStyle]="{'min-width': '50rem'}">
+                        <p-table #dt3 [value]="contacts" [rows]="5" [paginator]="contacts.length > 5"
+                            [globalFilterFields]="['name','email','mobile_no','subject','message']"
+                            styleClass="p-datatable-gridlines" [tableStyle]="{'min-width': '50rem'}">
                             <ng-template pTemplate="caption">
                                 <div class="flex">
                                     <span class="p-input-icon-left ml-auto border rounded">
-                                        <i class="fas fa-search"></i>
+                                        <i class="fa fa-search"></i>
                                         <input pInputText type="text"
                                             (input)="dt3.filterGlobal($any($event.target).value, 'contains')"
                                             placeholder="Search keyword" />
@@ -28,31 +28,59 @@
                                 <tr>
                                     <th class="text-center">S No</th>
                                     <th class="text-start">Name</th>
-                                    <th class="text-start">Mobile Number</th>
                                     <th class="text-start">Email</th>
+                                    <th class="text-start">Mobile Number</th>
+                                    <th class="text-start">Subject</th>
+                                    <th class="text-start">Message</th>
+                                    <th class="text-center">Action</th>
                                     <!-- <th class="text-center">Action</th> -->
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-delivery let-i="rowIndex">
+                            <ng-template pTemplate="body" let-contact let-i="rowIndex">
                                 <tr>
                                     <td class="text-center">{{ i + 1 }}</td>
-                                    <td class="text-start">{{delivery.name}}</td>
-                                    <td class="text-start">{{delivery.mobile_no}}</td>
-                                    <td class="text-start">{{delivery.email}}</td>
-                                    <!-- <td class="text-center">
-                                        <i class="mx-1 fas fa-trash-alt cursor-pointer" data-bs-toggle="modal"
-                                            data-bs-target="#usersdeletemodal"></i>
-                                    </td> -->
+                                    <td class="text-start">{{contact.name}}</td>
+                                    <td class="text-start">{{contact.email}}</td>
+                                    <td class="text-start">{{contact.mobile_no}}</td>
+                                    <td class="text-start">{{contact.subject}}</td>
+                                    <td class="text-start">{{contact.message}}</td>
+                                    <td class="text-center">
+                                        <i class="mx-1 fa fa-trash cursor-pointer" data-bs-toggle="modal"
+                                            data-bs-target="#blogdeletemodal" (click)="contact_id=contact?.id"></i>
+                                    </td>
                                 </tr>
                             </ng-template>
                         </p-table>
                     </div>
                 </div>
             </div>
-            <div class="col-12 text-center" *ngIf="userlist.length < 1">
+            <div class="col-12 text-center" *ngIf="contacts.length < 1">
                 <strong>No Data</strong>
             </div>
 
         </div>
     </div>
 </section>
+
+
+<!--delete Modal -->
+<div class="modal fade" id="blogdeletemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="blogdeletemodalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="blogdeletemodalLabel">Delete modal</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h5>Are you sure want to delete this Contact?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel </button>
+                <button type="button" class="btn btn-primary" (click)="deleteContact()" data-bs-dismiss="modal">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast position="top-right"></p-toast>

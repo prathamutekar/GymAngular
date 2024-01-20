@@ -11,7 +11,7 @@
                 <div class="card border-0">
                     <div class="card-body">
                         <p-table #dt3 [value]="userlist" [rows]="5" [paginator]="userlist.length > 5"
-                            [globalFilterFields]="['name','email','mobile_no']" styleClass="p-datatable-gridlines"
+                            [globalFilterFields]="['name','email','mobile_no','age','gender','address']" styleClass="p-datatable-gridlines"
                             [tableStyle]="{'min-width': '50rem'}">
                             <ng-template pTemplate="caption">
                                 <div class="flex">
@@ -28,17 +28,25 @@
                                 <tr>
                                     <th class="text-center">S No</th>
                                     <th class="text-start">Name</th>
-                                    <th class="text-start">Mobile Number</th>
                                     <th class="text-start">Email</th>
+                                    <th class="text-start">Mobile Number</th>
+                                    <th class="text-start">Age</th>
+                                    <th class="text-start">Gender</th>
+                                    <th class="text-start">Address</th>
+
                                     <!-- <th class="text-center">Action</th> -->
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-delivery let-i="rowIndex">
+                            <ng-template pTemplate="body" let-users let-i="rowIndex">
                                 <tr>
                                     <td class="text-center">{{ i + 1 }}</td>
-                                    <td class="text-start">{{delivery.name}}</td>
-                                    <td class="text-start">{{delivery.mobile_no}}</td>
-                                    <td class="text-start">{{delivery.email}}</td>
+                                    <td class="text-start">{{users.name}}</td>
+                                    <td class="text-start">{{users.email}}</td>
+                                    <td class="text-start">{{users.mobile_no}}</td>
+                                    <td class="text-start">{{users.age}}</td>
+                                    <td class="text-start">{{users.gender}}</td>
+                                    <td class="text-start">{{users.address}}</td>
+
                                     <!-- <td class="text-center">
                                         <i class="mx-1 fas fa-trash-alt cursor-pointer" data-bs-toggle="modal"
                                             data-bs-target="#usersdeletemodal"></i>

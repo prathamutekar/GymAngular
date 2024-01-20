@@ -9,10 +9,9 @@ import { GlobalService } from 'src/app/global.service';
   providers: [MessageService]
 })
 export class AdminUsersComponent {
-  TotalRecords: any = 0
 
   userlist: any =[];
-  delete_ID: any
+  // delete_ID: any
   constructor(private global: GlobalService, private messageService: MessageService) {
 
   }
@@ -24,7 +23,6 @@ export class AdminUsersComponent {
   getUser() {
     this.global.get(this.global.basepath + '/getUsers').subscribe((res: any) => {
       this.userlist = res.data;
-      this.TotalRecords = res.TotalRecords;
     })
   }
 

@@ -11,9 +11,8 @@ import { GlobalService } from 'src/app/global.service';
   providers: [MessageService]
 })
 export class AdminTrainersComponent {
-  blogs: any = [];
-  blog_id: any;
-  TotalRecords: any = 0
+  trainers: any = [];
+  trainer_id: any;
 
   imageExtensionsArray: any = ['apng', 'jpg', 'avif', 'gif', 'jpg', 'jpeg', 'jfif', 'pjpeg', 'pjp', 'png', 'svg', 'webp']
 
@@ -22,19 +21,25 @@ export class AdminTrainersComponent {
 
   constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService, private global: GlobalService) { }
 
-  AddBlog = this.fb.group({
-    title: ["", Validators.required],
-    description: ["", Validators.required],
+  AddTrainer = this.fb.group({
+    name: ["", Validators.required],
+    trainer_description: ["", Validators.required],
+    age: ["", Validators.required],
+    height: ["", Validators.required],
+    weight: ["", Validators.required]
   })
 
-  UpdateBlog = this.fb.group({
+  UpdateTrainer = this.fb.group({
     id: ["", Validators.required],
-    title: ["",],
-    description: ["",]
+    name: ["", Validators.required],
+    trainer_description: ["", Validators.required],
+    age: ["", Validators.required],
+    height: ["", Validators.required],
+    weight: ["", Validators.required]
   })
 
   ngOnInit() {
-    this.getBlogs()
+    this.getTrainers()
     
   }
 
@@ -51,25 +56,28 @@ export class AdminTrainersComponent {
     }
   }
 
-  getBlogs() {
+  getTrainers() {
     this.global.get(this.global.basepath + '/getTrainer').subscribe((res: any) => {
-      this.blogs = res.data;
-      this.TotalRecords = res.TotalRecords;
+      this.trainers = res.data;
     })
   }
 
   addBlogs() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
-    formData.append('title', this.AddBlog.controls['title'].value!);
-    formData.append('description', this.AddBlog.controls['description'].value!);
+    formData.append('name', this.AddTrainer.controls['name'].value!);
+    formData.append('age', this.AddTrainer.controls['age'].value!);
+    formData.append('height', this.AddTrainer.controls['height'].value!);
+    formData.append('weight', this.AddTrainer.controls['weight'].value!);
+    formData.append('trainer_description', this.AddTrainer.controls['trainer_description'].value!);
 
-    this.global.post(this.global.basepath + '/addBlogs', formData).subscribe(
+
+    this.global.post(this.global.basepath + '/addTrainer', formData).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message });
-        this.AddBlog.reset();
-        this.getBlogs();
+        this.AddTrainer.reset();
+        this.getTrainers();
       },
       (err: any) => {
         console.log(err);
@@ -82,16 +90,19 @@ export class AdminTrainersComponent {
   UpdateBlogs() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
-    formData.append('id', this.UpdateBlog.controls['id'].value!);
-    formData.append('title', this.UpdateBlog.controls['title'].value!);
-    formData.append('description', this.UpdateBlog.controls['description'].value!);
+    formData.append('id', this.UpdateTrainer.controls['id'].value!);
+    formData.append('name', this.UpdateTrainer.controls['name'].value!);
+    formData.append('age', this.UpdateTrainer.controls['age'].value!);
+    formData.append('height', this.UpdateTrainer.controls['height'].value!);
+    formData.append('weight', this.UpdateTrainer.controls['weight'].value!);
+    formData.append('trainer_description', this.UpdateTrainer.controls['trainer_description'].value!);
 
-    this.global.post(this.global.basepath + '/updateBlogs', formData).subscribe(
+    this.global.post(this.global.basepath + '/updateTrainer', formData).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.UpdateBlog.reset();
-        this.getBlogs();
+        this.UpdateTrainer.reset();
+        this.getTrainers();
       },
       (err: any) => {
         console.log(err);
@@ -102,11 +113,11 @@ export class AdminTrainersComponent {
   }
 
   deleteBlog() {
-    this.global.post(this.global.basepath + '/deleteBlog', { id: this.blog_id }).subscribe(
+    this.global.post(this.global.basepath + '/deleteTrainer', { id: this.trainer_id }).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.getBlogs();
+        this.getTrainers();
       },
       (err: any) => {
         console.log(err);
@@ -117,7 +128,7 @@ export class AdminTrainersComponent {
   }
 
   patchvalue(val: any) {
-    this.UpdateBlog.patchValue(val)
+    this.UpdateTrainer.patchValue(val)
   }
 
 }
