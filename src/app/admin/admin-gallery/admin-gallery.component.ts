@@ -11,8 +11,8 @@ import { GlobalService } from 'src/app/global.service';
   providers: [MessageService]
 })
 export class AdminGalleryComponent {
-  trainers: any = [];
-  trainer_id: any;
+  gallery: any = [];
+  gallery_id: any;
 
   imageExtensionsArray: any = ['apng', 'jpg', 'avif', 'gif', 'jpg', 'jpeg', 'jfif', 'pjpeg', 'pjp', 'png', 'svg', 'webp']
 
@@ -21,25 +21,17 @@ export class AdminGalleryComponent {
 
   constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService, private global: GlobalService) { }
 
-  AddTrainer = this.fb.group({
-    name: ["", Validators.required],
-    trainer_description: ["", Validators.required],
-    age: ["", Validators.required],
-    height: ["", Validators.required],
-    weight: ["", Validators.required]
+  AddGallery = this.fb.group({
+    videolink: [""],
   })
 
-  UpdateTrainer = this.fb.group({
+  UpdateGallery = this.fb.group({
     id: ["", Validators.required],
-    name: ["", Validators.required],
-    trainer_description: ["", Validators.required],
-    age: ["", Validators.required],
-    height: ["", Validators.required],
-    weight: ["", Validators.required]
+    videolink: [""],
   })
 
   ngOnInit() {
-    this.getTrainers()
+    this.getGallery()
 
   }
 
@@ -56,28 +48,23 @@ export class AdminGalleryComponent {
     }
   }
 
-  getTrainers() {
-    this.global.get(this.global.basepath + '/getTrainer').subscribe((res: any) => {
-      this.trainers = res.data;
+  getGallery() {
+    this.global.get(this.global.basepath + '/getGalleryImage').subscribe((res: any) => {
+      this.gallery = res.data;
     })
   }
 
-  addBlogs() {
+  addGalleryImage() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
-    formData.append('name', this.AddTrainer.controls['name'].value!);
-    formData.append('age', this.AddTrainer.controls['age'].value!);
-    formData.append('height', this.AddTrainer.controls['height'].value!);
-    formData.append('weight', this.AddTrainer.controls['weight'].value!);
-    formData.append('trainer_description', this.AddTrainer.controls['trainer_description'].value!);
+    formData.append('videolink', this.AddGallery.controls['videolink'].value!);
 
-
-    this.global.post(this.global.basepath + '/addTrainer', formData).subscribe(
+    this.global.post(this.global.basepath + '/addGalleryImage', formData).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message });
-        this.AddTrainer.reset();
-        this.getTrainers();
+        this.AddGallery.reset();
+        this.getGallery();
       },
       (err: any) => {
         console.log(err);
@@ -87,22 +74,18 @@ export class AdminGalleryComponent {
     );
   }
 
-  UpdateBlogs() {
+  UpdateGalleryImage() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
-    formData.append('id', this.UpdateTrainer.controls['id'].value!);
-    formData.append('name', this.UpdateTrainer.controls['name'].value!);
-    formData.append('age', this.UpdateTrainer.controls['age'].value!);
-    formData.append('height', this.UpdateTrainer.controls['height'].value!);
-    formData.append('weight', this.UpdateTrainer.controls['weight'].value!);
-    formData.append('trainer_description', this.UpdateTrainer.controls['trainer_description'].value!);
+    formData.append('id', this.UpdateGallery.controls['id'].value!);
+    formData.append('videolink', this.UpdateGallery.controls['videolink'].value!);
 
-    this.global.post(this.global.basepath + '/updateTrainer', formData).subscribe(
+    this.global.post(this.global.basepath + '/updateGalleryImage', formData).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.UpdateTrainer.reset();
-        this.getTrainers();
+        this.UpdateGallery.reset();
+        this.getGallery();
       },
       (err: any) => {
         console.log(err);
@@ -112,12 +95,12 @@ export class AdminGalleryComponent {
     );
   }
 
-  deleteBlog() {
-    this.global.post(this.global.basepath + '/deleteTrainer', { id: this.trainer_id }).subscribe(
+  deleteGallery() {
+    this.global.post(this.global.basepath + '/deleteGalleryImage', { id: this.gallery_id }).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.getTrainers();
+        this.getGallery();
       },
       (err: any) => {
         console.log(err);
@@ -128,7 +111,7 @@ export class AdminGalleryComponent {
   }
 
   patchvalue(val: any) {
-    this.UpdateTrainer.patchValue(val)
+    this.UpdateGallery.patchValue(val)
   }
 
 

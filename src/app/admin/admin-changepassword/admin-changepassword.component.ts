@@ -22,7 +22,7 @@ export class AdminChangepasswordComponent {
   }
 
   adminChangePassword = this.fb.group({
-    email: [""],
+    email: ["", [Validators.required]],
     current_password: ["", [Validators.required]],
     new_password: ["", [Validators.required]],
     new_password_confirmation: ["", Validators.required],

@@ -62,7 +62,7 @@ export class AdminTrainersComponent {
     })
   }
 
-  addBlogs() {
+  addTrainer() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
     formData.append('name', this.AddTrainer.controls['name'].value!);
@@ -87,7 +87,7 @@ export class AdminTrainersComponent {
     );
   }
 
-  UpdateBlogs() {
+  UpdateTrainers() {
     const formData = new FormData();
     formData.append('image', this.iconFile);
     formData.append('id', this.UpdateTrainer.controls['id'].value!);
@@ -112,7 +112,7 @@ export class AdminTrainersComponent {
     );
   }
 
-  deleteBlog() {
+  deleteTrainer() {
     this.global.post(this.global.basepath + '/deleteTrainer', { id: this.trainer_id }).subscribe(
       (res: any) => {
         this.messageService.clear()
@@ -130,5 +130,45 @@ export class AdminTrainersComponent {
   patchvalue(val: any) {
     this.UpdateTrainer.patchValue(val)
   }
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const inputValue = input.value;
+
+    // Use a regular expression to keep only alphabets, spaces, and backspace
+    const sanitizedValue = inputValue.replace(/[^a-zA-Z\s\b]/g, '');
+
+    if (inputValue !== sanitizedValue) {
+      // If the input value was modified, update the input value
+      input.value = sanitizedValue;
+    }
+  }
+
+  onNumberInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const inputValue = input.value;
+
+    // Use a regular expression to keep only numeric characters, spaces, and backspace
+    const sanitizedValue = inputValue.replace(/[^0-9\s\b]/g, '');
+
+    if (inputValue !== sanitizedValue) {
+      // If the input value was modified, update the input value
+      input.value = sanitizedValue;
+    }
+  }
+
+  onNumberInputHeight(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const inputValue = input.value;
+
+    // Use a regular expression to keep only numeric characters, spaces, backspace, and decimal point
+    const sanitizedValue = inputValue.replace(/[^0-9.\s\b]/g, '');
+
+    if (inputValue !== sanitizedValue) {
+        // If the input value was modified, update the input value
+        input.value = sanitizedValue;
+    }
+}
+
 
 }

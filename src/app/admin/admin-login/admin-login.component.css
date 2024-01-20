@@ -1,48 +1,79 @@
-.login-card {
-    padding-top: 10%;
-    background-color: rgba(36, 105, 92, 0.1);
-    height: 100vh;
+.login {
+    background-color: rgb(246, 235, 239);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h4 {
+.login h4 {
     font-size: 18px;
-    font-weight: 600;
-    margin: 0;
-    text-align: left;
+    font-weight: 500 !important;
+    color: var(--secondary-color) !important;
 }
 
-h5 {
-    font-size: 16px;
-    font-weight: 500;
-    text-align: left;
+.login button {
+    background: #47494b !important;
+    border-color: #47494b !important;
+    border-radius: 15px !important;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: #858585;
-    float: left;
-    margin-bottom: 5px;
-}
-
-input {
-    font-size: 14px;
-    font-weight: 500;
+.login .card {
     box-shadow: none !important;
 }
 
-i {
-    font-size: 18px;
+.btn-primary {
+    background: #47494b !important;
+    border-color: var(--secondary-color) !important;
+    border-radius: 15px !important;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
-.input-group-text {
-    border-color: #e6edef;
-    font-weight: 500;
-    padding: 9px 10px;
-    /* background: #858585; */
-    border-radius: 4px 0 0 4px;
+.btn-primary:hover {
+    color: #f36100 !important;
+    background-color: rgba(75, 73, 172, 0.2) !important;
+    border-color: rgba(75, 73, 172, 0) !important;
 }
 
-button {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+.btn-secondary {
+    background-color: #dadada !important;
+    border-color: #dadada !important;
+    color: var(--secondary-color) !important;
+    border-radius: 15px !important;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.login button:hover {
+    color: #fff !important;
+    background-color: #f36100 !important;
+    border-color: rgba(232, 232, 232, 0) !important;
+}
+
+ input {
+    border-radius: 20px 0 0 20px !important;
+}
+
+.card {
+    box-shadow: none !important;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus-visible {
+    color: #fff !important;
 }

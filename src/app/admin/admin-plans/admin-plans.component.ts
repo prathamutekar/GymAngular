@@ -11,8 +11,8 @@ import { GlobalService } from 'src/app/global.service';
   providers: [MessageService]
 })
 export class AdminPlansComponent {
-  trainers: any = [];
-  trainer_id: any;
+  plans: any = [];
+  plan_id: any;
 
   imageExtensionsArray: any = ['apng', 'jpg', 'avif', 'gif', 'jpg', 'jpeg', 'jfif', 'pjpeg', 'pjp', 'png', 'svg', 'webp']
 
@@ -21,25 +21,23 @@ export class AdminPlansComponent {
 
   constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService, private global: GlobalService) { }
 
-  AddTrainer = this.fb.group({
-    name: ["", Validators.required],
-    trainer_description: ["", Validators.required],
-    age: ["", Validators.required],
-    height: ["", Validators.required],
-    weight: ["", Validators.required]
-  })
+  AddPlan = this.fb.group({
+    plan_name: ["", Validators.required],
+    price: ["", Validators.required],
+    plan_validity: ["", Validators.required],
+    plan_features: ["", Validators.required],
+   })
 
-  UpdateTrainer = this.fb.group({
+  UpdatePlan = this.fb.group({
     id: ["", Validators.required],
-    name: ["", Validators.required],
-    trainer_description: ["", Validators.required],
-    age: ["", Validators.required],
-    height: ["", Validators.required],
-    weight: ["", Validators.required]
+    plan_name: ["", Validators.required],
+    price: ["", Validators.required],
+    plan_validity: ["", Validators.required],
+    plan_features: ["", Validators.required],
   })
 
   ngOnInit() {
-    this.getTrainers()
+    this.getPlans()
     
   }
 
@@ -56,28 +54,19 @@ export class AdminPlansComponent {
     }
   }
 
-  getTrainers() {
-    this.global.get(this.global.basepath + '/getTrainer').subscribe((res: any) => {
-      this.trainers = res.data;
+  getPlans() {
+    this.global.get(this.global.basepath + '/getPlan').subscribe((res: any) => {
+      this.plans = res.data;
     })
   }
 
-  addBlogs() {
-    const formData = new FormData();
-    formData.append('image', this.iconFile);
-    formData.append('name', this.AddTrainer.controls['name'].value!);
-    formData.append('age', this.AddTrainer.controls['age'].value!);
-    formData.append('height', this.AddTrainer.controls['height'].value!);
-    formData.append('weight', this.AddTrainer.controls['weight'].value!);
-    formData.append('trainer_description', this.AddTrainer.controls['trainer_description'].value!);
-
-
-    this.global.post(this.global.basepath + '/addTrainer', formData).subscribe(
+  addPlans() {
+    this.global.post(this.global.basepath + '/addPlan', this.AddPlan.value).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message });
-        this.AddTrainer.reset();
-        this.getTrainers();
+        this.AddPlan.reset();
+        this.getPlans();
       },
       (err: any) => {
         console.log(err);
@@ -87,22 +76,13 @@ export class AdminPlansComponent {
     );
   }
 
-  UpdateBlogs() {
-    const formData = new FormData();
-    formData.append('image', this.iconFile);
-    formData.append('id', this.UpdateTrainer.controls['id'].value!);
-    formData.append('name', this.UpdateTrainer.controls['name'].value!);
-    formData.append('age', this.UpdateTrainer.controls['age'].value!);
-    formData.append('height', this.UpdateTrainer.controls['height'].value!);
-    formData.append('weight', this.UpdateTrainer.controls['weight'].value!);
-    formData.append('trainer_description', this.UpdateTrainer.controls['trainer_description'].value!);
-
-    this.global.post(this.global.basepath + '/updateTrainer', formData).subscribe(
+  UpdatePlans() {
+    this.global.post(this.global.basepath + '/updatePlan', this.UpdatePlan.value).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.UpdateTrainer.reset();
-        this.getTrainers();
+        this.UpdatePlan.reset();
+        this.getPlans();
       },
       (err: any) => {
         console.log(err);
@@ -112,12 +92,12 @@ export class AdminPlansComponent {
     );
   }
 
-  deleteBlog() {
-    this.global.post(this.global.basepath + '/deleteTrainer', { id: this.trainer_id }).subscribe(
+  deletePlans() {
+    this.global.post(this.global.basepath + '/deletePlan', { id: this.plan_id }).subscribe(
       (res: any) => {
         this.messageService.clear()
         this.messageService.add({ severity: 'success', summary: res.message })
-        this.getTrainers();
+        this.getPlans();
       },
       (err: any) => {
         console.log(err);
@@ -128,7 +108,33 @@ export class AdminPlansComponent {
   }
 
   patchvalue(val: any) {
-    this.UpdateTrainer.patchValue(val)
+    this.UpdatePlan.patchValue(val)
+  }
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const inputValue = input.value;
+
+    // Use a regular expression to keep only alphabets, spaces, and backspace
+    const sanitizedValue = inputValue.replace(/[^a-zA-Z\s\b]/g, '');
+
+    if (inputValue !== sanitizedValue) {
+      // If the input value was modified, update the input value
+      input.value = sanitizedValue;
+    }
+  }
+
+  onNumberInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const inputValue = input.value;
+
+    // Use a regular expression to keep only numeric characters, spaces, and backspace
+    const sanitizedValue = inputValue.replace(/[^0-9\s\b]/g, '');
+
+    if (inputValue !== sanitizedValue) {
+      // If the input value was modified, update the input value
+      input.value = sanitizedValue;
+    }
   }
 
 

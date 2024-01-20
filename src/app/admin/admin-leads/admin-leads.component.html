@@ -44,7 +44,9 @@
                                         <select class="form-select" [(ngModel)]="Leads.leadStatus"
                                             (change)="updateLeadStatus(Leads)">
                                             <option value="0">Pending</option>
+                                            <option value="2">On Hold</option>
                                             <option value="1">Completed</option>
+
                                             <!-- <option value="2">Converted</option> -->
                                         </select>
                                     </td>
@@ -62,3 +64,4 @@
         </div>
     </div>
 </section>
+<p-toast position="top-right"></p-toast>
