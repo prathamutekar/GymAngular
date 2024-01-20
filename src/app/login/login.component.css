@@ -58,3 +58,9 @@ button {
     background-color: #007bff; /* Change the button color as needed */
     color: #fff; /* Change the text color as needed */
 }
+
+button:hover {
+    border-color: #e29624 !important;
+    background-color: #e29624 !important;
+    color: #fff !important; 
+}

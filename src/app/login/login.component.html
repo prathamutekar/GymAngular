@@ -4,7 +4,7 @@
             <div class="col-4 text-center">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form [formGroup]="userlogin">
                             <h4 class="text-center mb-3">Login</h4>
 
                             <div class="mb-3">
@@ -14,26 +14,45 @@
                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"
                                                 aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="email" name="email" class="form-control" placeholder="test@gmail.com"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="email" formControlName="email" class="form-control"
+                                        placeholder="test@gmail.com" aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userlogin.controls['email'].hasError('required') && userlogin.controls['email'].touched">
+                                    <small class="text-danger text-start fs-12">Please Enter Your
+                                        Email*</small>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userlogin.controls['email'].hasError('pattern') && (userlogin.controls['email'].touched || userlogin.controls['email'].dirty)">
+                                    <small class="text-danger text-start fs-12">Please Enter Valid Email*
+                                    </small>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label>Password</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"
-                                                aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="password" name="password" class="form-control" placeholder="********"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input [type]="password" class="form-control pe-0 " placeholder="********"
+                                        formControlName="password">
+                                    <span class="input-group-text ps-3 ">
+                                        <i class="fa fa-eye-slash cursor-pointer" *ngIf="password == 'password'"
+                                            (click)="password = 'text'"></i>
+                                        <i class="fa fa-eye cursor-pointer" *ngIf="password == 'text'"
+                                            (click)="password = 'password'"></i></span>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userlogin.controls['password'].hasError('required') && userlogin.controls['password'].touched">
+                                    <small class="fs-12 text-danger text-start">Please Enter Password*
+                                    </small>
                                 </div>
                             </div>
                             <div class="mb-1">
-                                <span>Don't have an account</span>&nbsp;<i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; <a routerLink="register">Click Here</a>
+                                <span>Don't have an account</span>&nbsp;<i class="fa fa-hand-o-right"
+                                    aria-hidden="true"></i>&nbsp; <a routerLink="register">Click Here</a>
                             </div>
                             <div class="mb-3">
-                                <button class="btn btn-primary mt-4 shadow-sm">Login</button>
+                                <button class="btn btn-primary mt-4 shadow-sm" (click)="userLogin()"
+                                    [disabled]="userlogin.invalid" type="submit">Login</button>
                             </div>
                         </form>
                     </div>
@@ -42,3 +61,4 @@
         </div>
     </div>
 </section>
+<p-toast position="top-right"></p-toast>

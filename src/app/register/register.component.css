@@ -4,10 +4,11 @@
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.7);
     /* Dark background color with transparency */
-    height: 100vh;
+    height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* scroll-behavior: smooth; */
 }
 
 .card {
@@ -15,6 +16,8 @@
     /* Transparent white background for the card */
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(82, 77, 239, 0.2);
+    background-position: center;
+    line-height: 0.8;
 }
 
 .card-body {
@@ -61,4 +64,10 @@ button {
     /* Change the button color as needed */
     color: #fff;
     /* Change the text color as needed */
+}
+
+button:hover {
+    border-color: #e29624 !important;
+    background-color: #e29624 !important;
+    color: #fff !important;
 }

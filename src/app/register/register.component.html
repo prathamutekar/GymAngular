@@ -4,60 +4,98 @@
             <div class="col-4 text-center">
                 <div class="card">
                     <div class="card-body">
-                        <form>
+                        <form [formGroup]="userregistration">
                             <h4 class="text-center">Register</h4>
                             <h5 class="text-muted mb-4">Create your account</h5>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <label>Full Name</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-circle"
                                                 aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="text" name="fullname" class="form-control"
+                                    <input type="text" formControlName="name" class="form-control"
                                         placeholder="For eg. John Doe" aria-label="Username"
-                                        aria-describedby="basic-addon1">
+                                        aria-describedby="basic-addon1" (input)="onInput($event)">
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['name'].hasError('required') && userregistration.controls['name'].touched">
+                                    <small class="text-danger fs-12 w-100">Please Enter Your
+                                        Name*</small>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <label>Email</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"
                                                 aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="email" name="email" class="form-control" placeholder="test@gmail.com"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="email" formControlName="email" class="form-control"
+                                        placeholder="test@gmail.com" aria-label="Username"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['email'].hasError('required') && userregistration.controls['email'].touched">
+                                    <small class="text-danger text-start fs-12">Please Enter Your
+                                        Email*</small>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['email'].hasError('pattern') && (userregistration.controls['email'].touched || userregistration.controls['email'].dirty)">
+                                    <small class="text-danger text-start fs-12">Please Enter Valid Email*
+                                    </small>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <label>Mobile Number</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"
                                                 aria-hidden="true"></i></span>
                                     </div>
-                                    <input type="tel" name="mobile_no" class="form-control" placeholder="8596321459"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="tel" formControlName="mobile_no" class="form-control"
+                                        placeholder="8596321459" aria-label="Username" aria-describedby="basic-addon1" minlength="10" maxlength="10"
+                                        (input)="onNumberInput($event)">
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['mobile_no'].hasError('required') && userregistration.controls['mobile_no'].touched">
+                                    <small class="text-danger text-start fs-12">Please Enter Your
+                                        Mobile Number*</small>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['mobile_no'].hasError('pattern') && (userregistration.controls['mobile_no'].touched || userregistration.controls['mobile_no'].dirty)">
+                                    <small class="text-danger text-start fs-12">Please Enter Valid Mobile Number*
+                                    </small>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <label>Password</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"
-                                                aria-hidden="true"></i></span>
-                                    </div>
-                                    <input type="password" name="password" class="form-control" placeholder="********"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input [type]="password" class="form-control pe-0 " placeholder="********"
+                                        formControlName="password">
+                                    <span class="input-group-text ps-3 ">
+                                        <i class="fa fa-eye-slash cursor-pointer" *ngIf="password == 'password'"
+                                            (click)="password = 'text'"></i>
+                                        <i class="fa fa-eye cursor-pointer" *ngIf="password == 'text'"
+                                            (click)="password = 'password'"></i></span>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['password'].hasError('required') && userregistration.controls['password'].touched">
+                                    <small class="fs-12 text-danger text-start">Please Enter Password*
+                                    </small>
                                 </div>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-2">
                                 <label>Address</label>
                                 <div class="input-group">
-
-                                    <textarea name="address" class="form-control" placeholder="Enter Your Address"
-                                        aria-label="Username" aria-describedby="basic-addon1" rows="3"></textarea>
+                                    <textarea formControlName="address" class="form-control"
+                                        placeholder="Enter Your Address" aria-label="Username"
+                                        aria-describedby="basic-addon1" rows="3"></textarea>
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['address'].hasError('required') && userregistration.controls['address'].touched">
+                                    <small class="text-danger text-start fs-12">Please Enter Your
+                                        Address*</small>
                                 </div>
                             </div>
                             <div class="row mb-1">
@@ -68,20 +106,28 @@
                                     <label for="age">Age</label>
                                 </div>
                                 <div class="col-6">
-                                    <span>Male:</span>&nbsp;<input type="radio" name="Male" id="age"
-                                        value="male">&nbsp;&nbsp;
-                                    <span>Female:</span>&nbsp;<input type="radio" name="Female" id="age" value="female">
+                                    <span>Male:</span>&nbsp;<input type="radio" formControlName="gender" value="male"
+                                        >&nbsp;&nbsp;
+                                    <span>Female:</span>&nbsp;<input type="radio" formControlName="gender"
+                                        value="female">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" placeholder="Enter Your Age" class="form-control">
+                                    <input type="tel" placeholder="Enter Your Age" class="form-control"
+                                        (input)="onNumberInput($event)" formControlName="age">
+                                </div>
+                                <div class="mb-2"
+                                    *ngIf="userregistration.controls['age'].hasError('required') && userregistration.controls['age'].touched">
+                                    <small class="fs-12 text-danger text-start">Please Enter Age*
+                                    </small>
                                 </div>
                                 <!-- <a href="javascript:void(0)">Forgot Password</a> -->
                             </div>
                             <div class="mb-1">
-                                <span>Already have an account</span>&nbsp;<i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp; <a routerLink="login">Click Here</a>
+                                <span>Already have an account</span>&nbsp;<i class="fa fa-hand-o-right"
+                                    aria-hidden="true"></i>&nbsp; <a routerLink="login">Click Here</a>
                             </div>
                             <div>
-                                <button class="btn btn-primary mt-4 shadow-sm">Register</button>
+                                <button class="btn btn-primary mt-4 shadow-sm" type="submit" [disabled]="userregistration.invalid" (click)="userRegistration()">Register</button>
                             </div>
                         </form>
                     </div>
@@ -90,3 +136,4 @@
         </div>
     </div>
 </section>
+<p-toast position="top-right"></p-toast>
