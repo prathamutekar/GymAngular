@@ -1,7 +1,63 @@
-button{
+.login {
+    padding: -2px;
+    margin: -2px;
+}
+
+.userBtn {
+    /* padding: 2px; */
     background-color: #f36100 !important;
     border-color: #f36100 !important;
     color: #fff !important;
-    border-radius: 10px !important;
+    border-radius: 15px !important;
+    font-size: 14px !important;
+    /* width: 80%; */
+}
+
+.userBtn:hover {
+    background-color: rgb(193 10 42) !important;
+    border-color: rgb(193 10 42) !important;
+    color: #fff !important;
+}
+
+/* Initial style for the hidden elements */
+.login ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f36100; /* Set your desired background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a dropdown effect */
+    border-radius: 10px; /* Add border-radius for curved borders */
+    overflow-y: auto; /* Add vertical scroll if content exceeds the max height */
+}
+
+/* Show the hidden elements when hovering over the parent li */
+.login:hover ul {
+    display: block;
+}
+
+/* Style for each dropdown item */
+.login ul li {
+    width: 250px;
+    padding: 2px; /* Adjust the padding as needed */
     font-size: 14px;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* Style for the dropdown links */
+.login ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+
+/* Style for the dropdown links on hover */
+.login ul li:hover {
+    background-color: rgb(193, 10, 42);
 }

@@ -16,7 +16,7 @@ export class HeaderComponent {
     console.log(this.username);
   }
 
-  isUserLogin(){
+  isUserLogin() {
     if (localStorage.getItem('isUserLogin') === 'true') {
       return true;
     } else {
@@ -39,5 +39,28 @@ export class HeaderComponent {
       return text.slice(0, limit) + '..';
     }
   }
+
+  togglemenufun() {
+    // Canvas Menu
+    document.querySelector('.canvas-open')?.addEventListener('click', () => {
+      const offcanvasMenuWrapper = document.querySelector('.offcanvas-menu-wrapper');
+      const offcanvasMenuOverlay = document.querySelector('.offcanvas-menu-overlay');
+
+      offcanvasMenuWrapper?.classList.add('show-offcanvas-menu-wrapper');
+      offcanvasMenuOverlay?.classList.add('active');
+    });
+
+    const closeElements = document.querySelectorAll('.canvas-close, .offcanvas-menu-overlay');
+    closeElements.forEach((element) => {
+      element.addEventListener('click', () => {
+        const offcanvasMenuWrapper = document.querySelector('.offcanvas-menu-wrapper');
+        const offcanvasMenuOverlay = document.querySelector('.offcanvas-menu-overlay');
+
+        offcanvasMenuWrapper?.classList.remove('show-offcanvas-menu-wrapper');
+        offcanvasMenuOverlay?.classList.remove('active');
+      });
+    });
+  }
+
 
 }
