@@ -9,6 +9,7 @@ import { OurTeamComponent } from './our-team/our-team.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'classes', component: ClassesComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'our-team', component: OurTeamComponent },
+  { path: 'changepassword', component: ChangepasswordComponent },
 ];
 
 @NgModule({

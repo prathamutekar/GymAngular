@@ -23,6 +23,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { AdminModule } from './admin/admin.module';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AdminModule } from './admin/admin.module';
     NodataComponent,
     LoginComponent,
     RegisterComponent,
+    ChangepasswordComponent,
     // AdminLoginComponent
   ],
   imports: [

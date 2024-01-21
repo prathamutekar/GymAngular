@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { GlobalService } from 'src/app/global.service';
+import { GlobalService } from '../global.service';
 
 @Component({
-  selector: 'app-admin-changepassword',
-  templateUrl: './admin-changepassword.component.html',
-  styleUrls: ['./admin-changepassword.component.css'],
+  selector: 'app-changepassword',
+  templateUrl: './changepassword.component.html',
+  styleUrls: ['./changepassword.component.css'],
   providers: [MessageService]
+
 })
-export class AdminChangepasswordComponent {
+export class ChangepasswordComponent {
   password = 'password';
   newpassword = 'password';
   cnfpassword = 'password';
@@ -21,7 +22,7 @@ export class AdminChangepasswordComponent {
     this.patchvalue()
   }
 
-  adminChangePassword = this.fb.group({
+  ChangePassword = this.fb.group({
     email: ["", [Validators.required]],
     current_password: ["", [Validators.required]],
     new_password: ["", [Validators.required]],
@@ -29,19 +30,20 @@ export class AdminChangepasswordComponent {
   })
 
   changePassword() {
-    this.global.post(this.global.basepath + '/adminChangePassword', this.adminChangePassword.value).subscribe((res: any) => {
+    this.global.post(this.global.basepath + '/userChangePassword', this.ChangePassword.value).subscribe((res: any) => {
       this.messageService.clear()
       this.messageService.add({ severity: 'success', summary: res.message });
-      this.adminChangePassword.reset()
+      this.ChangePassword.reset()
     }, (err: any) => {
       this.messageService.clear()
       this.messageService.add({ severity: 'error', summary: err.error.message });
-      this.adminChangePassword.reset()
+      this.ChangePassword.reset()
 
     })
   }
 
   patchvalue() {
-    this.adminChangePassword.controls['email'].setValue(localStorage.getItem('admin_email'))
+    this.ChangePassword.controls['email'].setValue(localStorage.getItem('user_email'))
   }
+
 }

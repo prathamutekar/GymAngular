@@ -35,23 +35,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="point">Below 18.5</td>
-                                <td>Underweight</td>
+                            <tr [ngClass]="{'highlight': weightStatus === 'Underweight'}">
+                                <td class="point" [ngClass]="{'highlight': weightStatus === 'Underweight'}">Below 18.5</td>
+                                <td [ngClass]="{'highlight': weightStatus === 'Underweight'}">Underweight</td>
                             </tr>
-                            <tr>
-                                <td class="point">18.5 - 24.9</td>
-                                <td>Healthy</td>
+                            <tr [ngClass]="{'highlight': weightStatus === 'Healthy'}">
+                                <td class="point" [ngClass]="{'highlight': weightStatus === 'Healthy'}">18.5 - 24.9</td>
+                                <td [ngClass]="{'highlight': weightStatus === 'Healthy'}">Healthy</td>
                             </tr>
-                            <tr>
-                                <td class="point">25.0 - 29.9</td>
-                                <td>Overweight</td>
+                            <tr [ngClass]="{'highlight': weightStatus === 'Overweight'}">
+                                <td class="point" [ngClass]="{'highlight': weightStatus === 'Overweight'}">25.0 - 29.9</td>
+                                <td [ngClass]="{'highlight': weightStatus === 'Overweight'}">Overweight</td>
                             </tr>
-                            <tr>
-                                <td class="point">30.0 - and Above</td>
-                                <td>Obese</td>
+                            <tr [ngClass]="{'highlight': weightStatus === 'Obese'}">
+                                <td class="point" [ngClass]="{'highlight': weightStatus === 'Obese'}">30.0 - and Above</td>
+                                <td [ngClass]="{'highlight': weightStatus === 'Obese'}">Obese</td>
                             </tr>
                         </tbody>
+                        
                     </table>
                 </div>
             </div>
@@ -64,22 +65,24 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo
                         viverra maecenas accumsan lacus vel facilisis.</p>
-                    <form action="javascript:void(0)">
+                    <form [formGroup]="BMIForm">
                         <div class="row">
                             <div class="col-sm-6">
-                                <input type="text" placeholder="Height / cm">
+                                <input type="tel" placeholder="Height / cm" formControlName="height" minlength="3"
+                                    maxlength="3">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" placeholder="Weight / kg">
+                                <input type="tel" placeholder="Weight / kg" formControlName="weight" minlength="2"
+                                    maxlength="3">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" placeholder="Age">
+                                <input type="tel" placeholder="Age" formControlName="age" minlength="2" maxlength="2">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" placeholder="Sex">
+                                <input type="text" placeholder="Sex" formControlName="sex">
                             </div>
                             <div class="col-lg-12">
-                                <button type="submit">Calculate</button>
+                                <button type="submit" (click)="calculateBMI()">Calculate</button>
                             </div>
                         </div>
                     </form>
@@ -119,3 +122,4 @@
     </div>
 </div>
 <!-- Get In Touch Section End -->
+<p-toast position="top-right"></p-toast>

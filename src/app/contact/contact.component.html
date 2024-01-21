@@ -46,12 +46,45 @@
             </div>
             <div class="col-lg-6">
                 <div class="leave-comment">
-                    <form action="#">
-                        <input type="text" placeholder="Name">
-                        <input type="text" placeholder="Email">
-                        <input type="text" placeholder="Website">
-                        <textarea placeholder="Comment"></textarea>
-                        <button type="submit">Submit</button>
+                    <form [formGroup]="ContactForm">
+                        <div class="mb-4">
+                            <input type="text" placeholder="Name" formControlName="name" (input)="onInput($event)" class="mb-0">
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['name'].hasError('required') && ContactForm.controls['name'].touched">Please
+                            Enter Your Name*</small>
+                        </div>
+                        <div class="mb-4">
+                            <input type="email" placeholder="Email" formControlName="email" class="mb-0">
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['email'].hasError('pattern') && (ContactForm.controls['email'].touched || ContactForm.controls['email'].dirty)">Please
+                            Enter Valid Email ID*</small>
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['email'].hasError('required') && ContactForm.controls['email'].touched">Please
+                            Enter Your Email Address*</small>
+                        </div>
+                        <div class="mb-4">
+                            <input type="tel" placeholder="Mobile No" formControlName="mobile_no" minlength="10"
+                            maxlength="10" (input)="onNumberInput($event)" class="mb-0">
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['mobile_no'].hasError('pattern') && (ContactForm.controls['mobile_no'].touched || ContactForm.controls['mobile_no'].dirty)">Please
+                            Enter Valid Mobile Number*</small>
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['mobile_no'].hasError('required') && ContactForm.controls['mobile_no'].touched">Please
+                            Enter Your Mobile Number*</small>
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" placeholder="Subject" formControlName="subject" class="mb-0">
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['subject'].hasError('required') && ContactForm.controls['subject'].touched">Please
+                            Enter Your Subject*</small>
+                        </div>
+                        <div class="mb-4">
+                            <textarea placeholder="Message" formControlName="message" class="mb-0"></textarea>
+                            <small class="text-danger text-start fs-12"
+                            *ngIf="ContactForm.controls['message'].hasError('required') && ContactForm.controls['message'].touched">Please
+                            Enter Your Message*</small>
+                        </div>
+                        <button type="submit" (click)="ContactUs()" [disabled]="ContactForm.invalid">Submit</button>
                     </form>
                 </div>
             </div>
@@ -94,3 +127,4 @@
     </div>
 </div>
 <!-- Get In Touch Section End -->
+<p-toast position="top-right"></p-toast>

@@ -15,7 +15,9 @@
             <li><a routerLink="bmi-calculator">Bmi calculate</a></li>
             <li><a routerLink="gallery">Gallery</a></li>
             <li><a routerLink="contact">Contact</a></li>
-            <li><a routerLink="login">Login</a></li>
+            <li *ngIf="username === null"><a routerLink="login">Login</a></li>
+            <li *ngIf="username !== null" class="login"><button><i class="fa fa-user me-2"></i>{{truncateText(username)
+                    | titlecase}}</button></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -47,7 +49,7 @@
                         <li><a routerLink="bmi-calculator">Bmi calculate</a></li>
                         <li><a routerLink="gallery">Gallery</a></li>
                         <li><a routerLink="contact">Contact</a></li>
-                        <li><a routerLink="login">Login</a></li>
+                        <li *ngIf="username === null"><a routerLink="login">Login</a></li>
                     </ul>
                 </nav>
             </div>

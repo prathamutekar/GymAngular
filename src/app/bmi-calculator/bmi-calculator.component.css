@@ -1,0 +1,7 @@
+/* Add this style to your component's CSS file or global styles */
+.highlight {
+    background-color: yellow; /* You can choose any color you prefer */
+    font-weight: bold;
+    color: black; /* Adjust text color as needed */
+  }
+  

@@ -28,6 +28,7 @@ export class LoginComponent {
         localStorage.clear()
         localStorage.setItem('isUserLogin', 'true');
         localStorage.setItem('user_email', res.data.email);
+        localStorage.setItem('username', res.data.name);
         this.router.navigate(['/home']);
       }, 500);
     }, (err: any) => {
