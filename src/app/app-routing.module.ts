@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { MembershipPageComponent } from './membership-page/membership-page.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'gallery', component: GalleryComponent },
   { path: 'our-team', component: OurTeamComponent },
   { path: 'changepassword', component: ChangepasswordComponent },
+  { path: 'membership-page', component: MembershipPageComponent },
+
 ];
 
 @NgModule({

@@ -5,9 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-  menu: boolean = true
+  menu: boolean = true;
+  // plan_id: Number = 0;
   activeTab: any = sessionStorage.getItem('adminActiveTab') ? sessionStorage.getItem('adminActiveTab') : 'admin-dashboard';
-  
+
   basepath = "http://127.0.0.1:8000/api"
 
   constructor(private http: HttpClient) {

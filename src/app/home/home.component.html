@@ -189,26 +189,22 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-8">
+            <div class="col-lg-4 col-md-8" *ngFor="let plan of plans">
                 <div class="ps-item">
-                    <h3>Class drop-in</h3>
+                    <h3>{{plan.plan_name}}</h3>
                     <div class="pi-price">
-                        <h2>$ 39.0</h2>
-                        <span>SINGLE CLASS</span>
+                        <h2>₹ {{plan.price}}</h2>
+                        <span>For {{plan.plan_validity}} Months</span>
                     </div>
                     <ul>
-                        <li>Free riding</li>
-                        <li>Unlimited equipments</li>
-                        <li>Personal trainer</li>
-                        <li>Weight losing classes</li>
-                        <li>Month to mouth</li>
-                        <li>No time restriction</li>
+                        <li *ngFor="let feature of plan.plan_features.split(', ')">{{feature}}</li>
                     </ul>
-                    <a href="javascript:void(0)" class="primary-btn pricing-btn">Enroll now</a>
+                    <a href="javascript:void(0)" class="primary-btn pricing-btn" *ngIf="isUserLogin()" (click)="addLeads(plan.id)">Enroll now</a>
+                    <a href="javascript:void(0)" class="primary-btn pricing-btn" *ngIf="!isUserLogin()" (click)="showMessage()">Enroll now</a>
                     <a href="javascript:void(0)" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-8">
+            <!-- <div class="col-lg-4 col-md-8">
                 <div class="ps-item">
                     <h3>12 Month unlimited</h3>
                     <div class="pi-price">
@@ -245,7 +241,7 @@
                     <a href="javascript:void(0)" class="primary-btn pricing-btn">Enroll now</a>
                     <a href="javascript:void(0)" class="thumb-icon"><i class="fa fa-picture-o"></i></a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -312,3 +308,4 @@
     </div>
 </div>
 <!-- Get In Touch Section End -->
+<p-toast position="top-right"></p-toast>

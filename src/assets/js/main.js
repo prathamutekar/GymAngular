@@ -125,16 +125,16 @@
     /*------------------
         Image Popup
     --------------------*/
-    $('.image-popup').magnificPopup({
-        type: 'image'
-    });
+    // $('.image-popup').magnificPopup({
+    //     type: 'image'
+    // });
 
     /*------------------
         Video Popup
     --------------------*/
-    $('.video-popup').magnificPopup({
-        type: 'iframe'
-    });
+    // $('.video-popup').magnificPopup({
+    //     type: 'iframe'
+    // });
 
     /*------------------
         Barfiller

@@ -1,0 +1,32 @@
+section {
+    min-height: 90vh;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.card .card-header {
+    border-radius: 15px 15px 0 0;
+}
+
+.card .card-header h4 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.card .card-body p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.pswd{
+    /* background-image: url("assets/img/breadcrumb-bg.jpg"); */
+    padding-top: 120px;
+    /* opacity: 0.8; */
+}
+/* 
+p, h4 {
+    color: white !important;
+} */
