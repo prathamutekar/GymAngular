@@ -1,19 +1,27 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { GlobalService } from 'src/app/global.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [MessageService]
 })
 export class HeaderComponent {
   username = localStorage.getItem('username');
-  constructor(private router: Router, public global: GlobalService) { }
+  constructor(private router: Router, public global: GlobalService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.username = localStorage.getItem('username');
     console.log(this.username);
+  }
+
+  navigateTo(val: any) {
+    this.router.navigate([val]);
+    this.global.actTab = val;
+    sessionStorage.setItem('userActiveTab', val)
   }
 
   isUserLogin() {
@@ -26,6 +34,9 @@ export class HeaderComponent {
 
   logout() {
     localStorage.clear();
+    sessionStorage.clear();
+    this.messageService.clear();
+    this.messageService.add({ severity: 'success', summary: 'Logged Out Successfully!' });
     setTimeout(() => {
       this.router.navigate(['/login']);
     }, 1000);

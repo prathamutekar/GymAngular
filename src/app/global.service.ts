@@ -8,7 +8,7 @@ export class GlobalService {
   menu: boolean = true;
   // plan_id: Number = 0;
   activeTab: any = sessionStorage.getItem('adminActiveTab') ? sessionStorage.getItem('adminActiveTab') : 'admin-dashboard';
-
+  actTab: any = sessionStorage.getItem('userActiveTab') ? sessionStorage.getItem('userActiveTab') : 'home';
   basepath = "http://127.0.0.1:8000/api"
 
   constructor(private http: HttpClient) {

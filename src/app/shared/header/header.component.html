@@ -9,19 +9,29 @@
     </div> -->
     <nav class="canvas-menu mobile-menu">
         <ul>
-            <li><a routerLink="home">Home</a></li>
-            <li><a routerLink="about-us">About Us</a></li>
-            <li><a routerLink="our-team">Our Team</a></li>
-            <li><a routerLink="bmi-calculator">Bmi calculate</a></li>
-            <li><a routerLink="gallery">Gallery</a></li>
-            <li><a routerLink="contact">Contact</a></li>
-            <li *ngIf="username === null"><a routerLink="login">Login</a></li>
-            <li *ngIf="username !== null" class="login"><button><i class="fa fa-user me-2"></i>{{truncateText(username)
-                    | titlecase}}</button>
+            <li [ngClass]="global.actTab == 'home'?'active':''" (click)="navigateTo('home')"><a
+                    href="javascript:void(0)">Home</a></li>
+            <li [ngClass]="global.actTab == 'about-us'?'active':''" (click)="navigateTo('about-us')"><a
+                    href="javascript:void(0)">About Us</a></li>
+            <li [ngClass]="global.actTab == 'our-team'?'active':''" (click)="navigateTo('our-team')"><a
+                    href="javascript:void(0)">Our Team</a></li>
+            <li [ngClass]="global.actTab == 'bmi-calculator'?'active':''" (click)="navigateTo('bmi-calculator')"><a
+                    href="javascript:void(0)">Bmi calculate</a></li>
+            <li [ngClass]="global.actTab == 'gallery'?'active':''" (click)="navigateTo('gallery')"><a
+                    href="javascript:void(0)">Gallery</a></li>
+            <li [ngClass]="global.actTab == 'contact'?'active':''" (click)="navigateTo('contact')"><a
+                    href="javascript:void(0)">Contact</a></li>
+            <li [ngClass]="global.actTab == 'login'?'active':''" (click)="navigateTo('login')"
+                *ngIf="username === null"><a href="javascript:void(0)">Login</a></li>
+            <li *ngIf="username !== null" class="login"><a type="button" class="btn me-3 rounded-pill userBtn"> &nbsp;<i
+                        class="fa fa-user me-2"></i>{{truncateText(username)
+                    | titlecase}}</a>
                 <ul>
                     <!-- Add your two additional li elements here -->
-                    <li><a routerLink="/changepassword"><i class="fa fa-lock"></i>Change Password</a></li>
-                    <li (click)="logout()"><i class="fa fa-sign-out"></i>Logout</li>
+                    <li class="me-1"><a routerLink="/changepassword"><i class="fa fa-lock"></i>&nbsp;Change
+                            Password</a></li>
+                    <li class="me-1"><a (click)="logout()"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+                    </li>
                 </ul>
             </li>
         </ul>
@@ -49,21 +59,30 @@
             <div class="col-lg-6">
                 <nav class="nav-menu">
                     <ul>
-                        <li class="active"><a routerLink="home">Home</a></li>
-                        <li><a routerLink="about-us">About Us</a></li>
-                        <li><a routerLink="our-team">Our Team</a></li>
-                        <li><a routerLink="bmi-calculator">Bmi calculate</a></li>
-                        <li><a routerLink="gallery">Gallery</a></li>
-                        <li><a routerLink="contact">Contact</a></li>
-                        <li *ngIf="username === null"><a routerLink="login">Login</a></li>
+                        <li [ngClass]="global.actTab == 'home'?'active':''" (click)="navigateTo('home')"><a
+                                href="javascript:void(0)">Home</a></li>
+                        <li [ngClass]="global.actTab == 'about-us'?'active':''" (click)="navigateTo('about-us')"><a
+                                href="javascript:void(0)">About Us</a></li>
+                        <li [ngClass]="global.actTab == 'our-team'?'active':''" (click)="navigateTo('our-team')"><a
+                                href="javascript:void(0)">Our Team</a></li>
+                        <li [ngClass]="global.actTab == 'bmi-calculator'?'active':''"
+                            (click)="navigateTo('bmi-calculator')"><a href="javascript:void(0)">Bmi calculate</a></li>
+                        <li [ngClass]="global.actTab == 'gallery'?'active':''" (click)="navigateTo('gallery')"><a
+                                href="javascript:void(0)">Gallery</a></li>
+                        <li [ngClass]="global.actTab == 'contact'?'active':''" (click)="navigateTo('contact')"><a
+                                href="javascript:void(0)">Contact</a></li>
+                        <li [ngClass]="global.actTab == 'login'?'active':''" (click)="navigateTo('login')"
+                            *ngIf="username === null"><a href="javascript:void(0)">Login</a></li>
                         <li *ngIf="username !== null" class="login"><a type="button"
                                 class="btn me-3 rounded-pill userBtn"> &nbsp;<i
                                     class="fa fa-user me-2"></i>{{truncateText(username)
                                 | titlecase}}</a>
                             <ul>
                                 <!-- Add your two additional li elements here -->
-                                <li class="me-1"><a routerLink="/changepassword"><i class="fa fa-lock"></i>&nbsp;Change Password</a></li>
-                                <li class="me-1"><a (click)="logout()"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
+                                <li  class="me-1" (click)="navigateTo('changepassword')"><a href="javascript:void(0)"><i class="fa fa-lock"></i>&nbsp;Change
+                                        Password</a></li>
+                                <li class="me-1"><a (click)="logout()"><i class="fa fa-sign-out"></i>&nbsp;Logout</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -89,3 +108,4 @@
     </div>
 </header>
 <!-- Header End -->
+<p-toast position="top-right"></p-toast>

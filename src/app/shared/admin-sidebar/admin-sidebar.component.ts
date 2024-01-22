@@ -15,17 +15,13 @@ export class AdminSidebarComponent {
 
   navigateTo(val: any) {
     this.router.navigate(['/admin/' + val]);
-    // if(val == 'login'){
-    //   this.router.navigate(['/' + val]);
-    // }
-    // else{
-    // }
     this.global.activeTab = val;
     sessionStorage.setItem('adminActiveTab', val)
   }
 
   logout() {
     localStorage.clear()
+    sessionStorage.clear()
     this.messageService.clear()
     this.messageService.add({ severity: 'success', summary: "Logged Out Successfully!" });
     setTimeout(() => {
