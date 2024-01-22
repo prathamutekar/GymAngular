@@ -28,10 +28,14 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #f36100; /* Set your desired background color */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for a dropdown effect */
-    border-radius: 10px; /* Add border-radius for curved borders */
-    overflow-y: auto; /* Add vertical scroll if content exceeds the max height */
+    background-color: #f36100;
+    /* Set your desired background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a box shadow for a dropdown effect */
+    border-radius: 10px;
+    /* Add border-radius for curved borders */
+    overflow-y: auto;
+    /* Add vertical scroll if content exceeds the max height */
 }
 
 /* Show the hidden elements when hovering over the parent li */
@@ -42,7 +46,8 @@
 /* Style for each dropdown item */
 .login ul li {
     width: 250px;
-    padding: 2px; /* Adjust the padding as needed */
+    padding: 2px;
+    /* Adjust the padding as needed */
     font-size: 14px;
     color: #fff;
     text-align: center;
