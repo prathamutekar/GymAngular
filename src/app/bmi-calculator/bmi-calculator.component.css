@@ -5,3 +5,9 @@
     color: black; /* Adjust text color as needed */
   }
   
+  select{
+    font-size: 14px;
+    background-color: #151515 !important;
+    color: #ffffff !important;
+    border-color: #363636;
+  }

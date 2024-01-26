@@ -20,6 +20,12 @@ export class GalleryComponent {
     this.getGalleryImages();
   }
 
+  navigateTo(val: any) {
+    this.router.navigate([val]);
+    this.global.actTab = val;
+    sessionStorage.setItem('userActiveTab', val)
+  }
+
   getGalleryImages() {
     this.global.get(this.global.basepath + '/getGalleryImage').subscribe((res: any) => {
       this.galleryImages = res.data;

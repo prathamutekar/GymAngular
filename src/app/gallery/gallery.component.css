@@ -1,0 +1,3 @@
+.gallery .gs-item.grid-wide {
+    width: calc(33% - 10px) !important;
+}

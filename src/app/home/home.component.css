@@ -1,0 +1,12 @@
+section .hi-text a {
+    color: #fff !important;
+}
+
+section .hi-text a:hover {
+    cursor: pointer !important;
+}
+
+.gallery .gs-item.grid-wide {
+    width: calc(33% - 10px) !important;
+}
+

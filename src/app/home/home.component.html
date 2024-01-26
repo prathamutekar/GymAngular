@@ -27,7 +27,7 @@
                 <div class="hi-text">
                     <span>Shape your body</span>
                     <h1>Be <strong>strong</strong> traning hard</h1>
-                    <a routerLink="/about-us" class="primary-btn">Get info</a>
+                    <a (click)="navigateTo('about-us')" class="primary-btn">Get info</a>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
 <!-- ChoseUs Section End -->
 
 <!-- Banner Section Begin -->
-<section class="banner-section set-bg" style=" background-image: url('assets/img/banner-bg.jpg');">
+<section class="banner-section set-bg" style=" background-image: url('assets/img/banner-bg.jpg');" *ngIf="!isUserLogin()">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -249,25 +249,25 @@
 
 <!-- Gallery Section Begin -->
 <div class="gallery-section">
-    <div class="gallery">
+    <div class="gallery" id="dynamicGallery">
         <div class="grid-sizer"></div>
         <div class="gs-item grid-wide set-bg" style="background-image: url('assets/img/gallery/gallery-1.jpg');">
             <a href="assets/img/gallery/gallery-1.jpg" class="thumb-icon image-popup"><i
                     class="fa fa-picture-o"></i></a>
         </div>
-        <div class="gs-item set-bg" style="background-image: url('assets/img/gallery/gallery-2.jpg');">
+        <div class="gs-item grid-wide set-bg" style="background-image: url('assets/img/gallery/gallery-2.jpg');">
             <a href="assets/img/gallery/gallery-2.jpg" class="thumb-icon image-popup"><i
                     class="fa fa-picture-o"></i></a>
         </div>
-        <div class="gs-item set-bg" style="background-image: url('assets/img/gallery/gallery-3.jpg');">
+        <div class="gs-item grid-wide set-bg" style="background-image: url('assets/img/gallery/gallery-3.jpg');">
             <a href="assets/img/gallery/gallery-3.jpg" class="thumb-icon image-popup"><i
                     class="fa fa-picture-o"></i></a>
         </div>
-        <div class="gs-item set-bg" style="background-image: url('assets/img/gallery/gallery-4.jpg');">
+        <div class="gs-item grid-wide set-bg" style="background-image: url('assets/img/gallery/gallery-4.jpg');">
             <a href="assets/img/gallery/gallery-4.jpg" class="thumb-icon image-popup"><i
                     class="fa fa-picture-o"></i></a>
         </div>
-        <div class="gs-item set-bg" style="background-image: url('assets/img/gallery/gallery-5.jpg');">
+        <div class="gs-item grid-wide set-bg" style="background-image: url('assets/img/gallery/gallery-5.jpg');">
             <a href="assets/img/gallery/gallery-5.jpg" class="thumb-icon image-popup"><i
                     class="fa fa-picture-o"></i></a>
         </div>

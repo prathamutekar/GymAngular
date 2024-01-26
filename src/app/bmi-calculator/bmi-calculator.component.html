@@ -6,8 +6,7 @@
                 <div class="breadcrumb-text">
                     <h2>BMI calculator</h2>
                     <div class="bt-option">
-                        <a href="./index.html">Home</a>
-                        <a href="javascript:void(0)">Pages</a>
+                        <a href="javascript:void(0)" (click)="navigateTo('home')">Home</a>
                         <span>BMI calculator</span>
                     </div>
                 </div>
@@ -79,7 +78,13 @@
                                 <input type="tel" placeholder="Age" formControlName="age" minlength="2" maxlength="2">
                             </div>
                             <div class="col-sm-6">
-                                <input type="text" placeholder="Sex" formControlName="sex">
+                                <select formControlName="sex" aria-placeholder="Choose Gender" class="w-100 h-75">
+                                    <option value="" disabled selected class="text-center">Select Gender</option>
+                                    <option value="male" class="text-center">Male</option>
+                                    <option value="female" class="text-center">Female</option>
+                                    <!-- <option value="">Other</option> -->
+                                </select>
+                                <!-- <input type="text" placeholder="Sex" formControlName="sex"> -->
                             </div>
                             <div class="col-lg-12">
                                 <button type="submit" (click)="calculateBMI()">Calculate</button>

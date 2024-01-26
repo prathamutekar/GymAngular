@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { GlobalService } from '../global.service';
 
+declare var $: any; // Declare jQuery
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +20,14 @@ export class HomeComponent {
 
   ngOnInit() {
     this.getPlans()
+    this.initializeMagnificPopup()
     console.log(this.isUserLogin())
+  }
+
+  navigateTo(val: any) {
+    this.router.navigate([val]);
+    this.global.actTab = val;
+    sessionStorage.setItem('userActiveTab', val)
   }
 
   isUserLogin() {
@@ -49,5 +58,22 @@ export class HomeComponent {
   showMessage() {
     this.messageService.clear()
     this.messageService.add({ severity: 'warn', summary: 'Please Login First In Order To Access Membership Plans' });
+  }
+
+  initializeMagnificPopup() {
+    $('#dynamicGallery').magnificPopup({
+      delegate: 'a.image-popup',
+      type: 'image',
+      gallery: {
+        enabled: true
+      },
+      zoom: {
+        enabled: true,
+        duration: 300,
+        opener: function (element: any) {
+          return element.find('i');
+        }
+      }
+    });
   }
 }

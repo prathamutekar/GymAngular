@@ -20,6 +20,12 @@ export class OurTeamComponent {
     
   }
 
+  navigateTo(val: any) {
+    this.router.navigate([val]);
+    this.global.actTab = val;
+    sessionStorage.setItem('userActiveTab', val)
+  }
+
   getTrainers() {
     this.global.get(this.global.basepath + '/getTrainer').subscribe((res: any) => {
       this.trainers = res.data;

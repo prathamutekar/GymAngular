@@ -73,6 +73,7 @@ export class BmiCalculatorComponent {
       });
     }
     this.BMIForm.reset();
+    this.BMIForm.controls['sex'].setValue('')
   }
 
   determineWeightStatus(): void {
@@ -97,6 +98,12 @@ export class BmiCalculatorComponent {
     } else {
       return 3; // Index of 'Obese' row
     }
+  }
+
+  navigateTo(val: any) {
+    this.router.navigate([val]);
+    this.global.actTab = val;
+    sessionStorage.setItem('userActiveTab', val)
   }
 
 }
